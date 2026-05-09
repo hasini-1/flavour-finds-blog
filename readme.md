@@ -90,7 +90,7 @@ Blog-Website/
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/flavour-finds-blog.git
+git clone https://github.com/hasini-1/flavour-finds-blog.git
 ```
 
 ---
