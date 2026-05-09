@@ -1,0 +1,67 @@
+<%- include("partials/header.ejs") %>
+
+<section class="about-page">
+
+  <div class="about-container">
+
+    <h1>Edit Blog ✏️</h1>
+
+    <form
+      action="/update/<%= blog.id %>"
+      method="POST"
+    >
+
+      <input
+        type="text"
+        name="title"
+        class="feedback-input"
+        value="<%= blog.title %>"
+        required
+      >
+
+
+      <select
+        name="category"
+        class="feedback-input"
+      >
+
+        <option value="<%= blog.category %>">
+          <%= blog.category %>
+        </option>
+
+        <option value="Recipes">Recipes</option>
+
+        <option value="Street Food">
+          Street Food
+        </option>
+
+        <option value="Healthy Food">
+          Healthy Food
+        </option>
+
+        <option value="Desserts">
+          Desserts
+        </option>
+
+      </select>
+
+
+      <textarea
+        name="content"
+        class="feedback-input"
+        required
+      ><%= blog.content %></textarea>
+
+
+      <input
+        type="submit"
+        value="Update Blog"
+      >
+
+    </form>
+
+  </div>
+
+</section>
+
+<%- include("partials/footer.ejs") %></div>

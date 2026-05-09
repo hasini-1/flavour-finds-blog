@@ -1,0 +1,59 @@
+<%- include("partials/header.ejs") %>
+
+<section class="about-page">
+
+  <div class="about-container">
+
+    <h1>Create Your Blog ✍️</h1>
+
+    <form action="/publish" method="POST">
+
+  <input
+    type="text"
+    name="title"
+    class="feedback-input"
+    placeholder="Blog Title"
+    required
+  >
+
+
+  <select
+    name="category"
+    class="feedback-input"
+    required
+  >
+
+    <option value="">Select Category</option>
+
+    <option value="Recipes">Recipes</option>
+
+    <option value="Street Food">Street Food</option>
+
+    <option value="Healthy Food">Healthy Food</option>
+
+    <option value="Desserts">Desserts</option>
+
+    <option value="Fast Food">Fast Food</option>
+
+  </select>
+
+
+  <textarea
+    name="content"
+    class="feedback-input"
+    placeholder="Write your blog here..."
+    required
+  ></textarea>
+
+
+  <input
+    type="submit"
+    value="Publish Blog"
+  >
+
+</form>
+  </div>
+
+</section>
+
+<%- include("partials/footer.ejs") %>

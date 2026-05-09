@@ -1,0 +1,290 @@
+<%- include("partials/header.ejs") %>
+<section class="hero">
+<div class="hero-text">
+<% if(locals.name){ %>
+<h1>
+        Hey, <%= name %> 👋
+      </h1>
+<% } else { %>
+<h1>
+        Welcome to Flavour Finds 👋
+      </h1>
+
+    <% } %>
+
+    <p>
+      Welcome to our food blog website. Explore delicious recipes,
+      healthy meals, desserts, restaurant stories, and amazing
+      food experiences from around the world.
+    </p>
+
+    <h4>Let's connect!</h4>
+
+    <form action="/submit" method="POST" class="email-box">
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        required
+      >
+
+      <button type="submit">
+        Get Started
+      </button>
+
+    </form>
+
+  </div>
+
+
+
+  <!-- HERO IMAGE -->
+
+  <div class="hero-image">
+
+    <img
+      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop"
+      alt="Food Hero"
+    >
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= TOPICS ================= -->
+
+<section class="topics">
+
+  <h3>✨ Trending Topics</h3>
+
+  <div class="topic-row">
+
+    <div class="topic">Street Food</div>
+    <div class="topic">Healthy Meals</div>
+    <div class="topic">Desserts</div>
+    <div class="topic">Recipes</div>
+    <div class="topic">Fast Food</div>
+
+    <button class="explore-btn">
+      Explore All
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= BLOG POSTS ================= -->
+
+<section class="content-area">
+
+  <main class="posts">
+
+
+
+    <!-- DEFAULT BLOG 1 -->
+
+    <div class="post-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1000&auto=format&fit=crop"
+        alt=""
+      >
+
+      <div class="post-content">
+
+        <span class="badge">
+          Food
+        </span>
+
+        <h2>
+          Exploring the Delicious World of Street Food
+        </h2>
+
+        <p>
+          Street food is more than just quick bites —
+          it is culture, tradition, and unforgettable flavor
+          packed into every dish.
+        </p>
+
+        <div class="post-footer">
+
+          <span>
+            Food • Travel
+          </span>
+
+          <span>
+            Chef Maria
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- DEFAULT BLOG 2 -->
+
+    <div class="post-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1000&auto=format&fit=crop"
+        alt=""
+      >
+
+      <div class="post-content">
+
+        <span class="badge blue">
+          Recipes
+        </span>
+
+        <h2>
+          Healthy Breakfast Ideas to Start Your Day Right
+        </h2>
+
+        <p>
+          Nutritious breakfasts can improve focus,
+          increase energy, and help maintain
+          a healthy lifestyle every day.
+        </p>
+
+        <div class="post-footer">
+
+          <span>
+            Health • Recipes
+          </span>
+
+          <span>
+            Emma Watson
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- DEFAULT BLOG 3 -->
+
+    <div class="post-card">
+
+      <img
+        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000&auto=format&fit=crop"
+        alt=""
+      >
+
+      <div class="post-content">
+
+        <span class="badge pink">
+          Desserts
+        </span>
+
+        <h2>
+          Why Homemade Desserts Taste Better Than Store Bought
+        </h2>
+
+        <p>
+          Homemade desserts carry warmth, creativity,
+          and fresh ingredients that create unforgettable
+          flavors and memories.
+        </p>
+
+        <div class="post-footer">
+
+          <span>
+            Desserts • Lifestyle
+          </span>
+
+          <span>
+            Sophia Lee
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ================= USER BLOGS ================= -->
+
+    <% blogs.forEach((blog) => { %>
+
+      <div class="post-card">
+
+        <img
+          src="<%= blog.image %>"
+          alt=""
+        >
+
+        <div class="post-content">
+
+          <span class="badge">
+            <%= blog.category %>
+          </span>
+
+          <h2>
+            <%= blog.title %>
+          </h2>
+
+          <p>
+            <%= blog.content %>
+          </p>
+
+          <div class="post-footer">
+
+            <span>
+              Posted by <%= blog.author %>
+            </span>
+
+          </div>
+
+
+
+          <!-- BLOG BUTTONS -->
+
+          <div class="blog-buttons">
+
+            <a href="/edit/<%= blog.id %>">
+
+              <button class="edit-btn">
+                Edit
+              </button>
+
+            </a>
+
+
+
+            <form
+              action="/delete/<%= blog.id %>"
+              method="POST"
+            >
+
+              <button class="delete-btn">
+                Delete
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    <% }) %>
+
+  </main>
+
+</section>
+
+<%- include("partials/footer.ejs") %>
